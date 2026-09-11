@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>V12 Engine Simulator</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="cockpit">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">ENGINE SIMULATOR</span>
+        <h1>V12</h1>
+      </div>
+      <div class="status"><span id="statusDot"></span><span id="statusText">STANDBY</span></div>
+    </header>
+
+    <section class="dashboard">
+      <div class="gauge-card tach-card">
+        <div class="gauge-title">RPM <span>×1000</span></div>
+        <div class="tachometer">
+          <div class="tach-ring"></div>
+          <div class="ticks" id="ticks"></div>
+          <div class="needle" id="needle"></div>
+          <div class="hub"></div>
+          <div class="rpm-number" id="rpm">0000</div>
+          <div class="rpm-label">REV / MIN</div>
+        </div>
+        <div class="redline-label">REDLINE <strong>9 500</strong></div>
+      </div>
+
+      <div class="side-stack">
+        <div class="metric-card">
+          <span class="metric-label">SPEED</span>
+          <strong id="speed">000</strong><small>KM/H</small>
+        </div>
+        <div class="metric-card gear-card">
+          <span class="metric-label">GEAR</span>
+          <strong id="gear">N</strong>
+          <span class="shift-hint" id="shiftHint">READY</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="telemetry">
+      <div><span>ENGINE</span><strong id="engineTemp">-- °C</strong></div>
+      <div><span>OIL</span><strong id="oilTemp">-- °C</strong></div>
+      <div><span>OIL PRESS.</span><strong id="oilPressure">-- bar</strong></div>
+      <div><span>POWER</span><strong id="power">-- HP</strong></div>
+    </section>
+
+    <section class="mode-panel">
+      <div class="mode-header">
+        <span>DRIVE MODE</span>
+        <strong id="modeLabel">COMFORT</strong>
+      </div>
+      <div class="mode-buttons">
+        <button data-mode="comfort" class="mode active">COMFORT</button>
+        <button data-mode="sport" class="mode">SPORT</button>
+        <button data-mode="sportplus" class="mode">SPORT+</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button class="paddle paddle-left" id="downshift" aria-label="Rétrograder">−</button>
+      <button class="start" id="start">
+        <span class="start-icon">◉</span>
+        <span id="startText">START ENGINE</span>
+      </button>
+      <button class="paddle paddle-right" id="upshift" aria-label="Monter un rapport">+</button>
+    </section>
+
+    <section class="throttle">
+      <div class="throttle-head"><span>THROTTLE</span><strong id="throttleValue">0%</strong></div>
+      <input id="throttle" type="range" min="0" max="100" value="0" step="1">
+    </section>
+
+    <footer>
+      <span>V12 • 6.5L • NATURALLY ASPIRATED</span>
+      <button id="mute">SOUND ON</button>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
