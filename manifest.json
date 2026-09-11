@@ -1,0 +1,10 @@
+{
+  "name":"V12 Engine Simulator",
+  "short_name":"V12 Simulator",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#050505",
+  "theme_color":"#050505",
+  "orientation":"portrait",
+  "icons":[]
+}
